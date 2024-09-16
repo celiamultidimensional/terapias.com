@@ -304,10 +304,10 @@
             <button class="dropbtn" onclick="window.location.href='index.html'">Voltar</button>
         </div>
         <div class="dropdown">
-            <button class="dropbtn">Terapias
+            <button class="dropbtn" id="terapiasBtn">Terapias
                 <i class="fa fa-caret-down"></i>
             </button>
-            <div class="dropdown-content">
+            <div class="dropdown-content" id="terapiasContent">
                 <a href="Terapias.html#Reiki">Reiki</a>
                 <a href="Terapias.html#TerapiaMultidimensional">Terapia Multidimensional</a>
                 <a href="Terapias.html#MassagemDeSom">Massagem de Som</a>
@@ -319,10 +319,10 @@
             </div>
         </div>
         <div class="dropdown">
-            <button class="dropbtn">Cursos/eventos 
+            <button class="dropbtn" id="cursosBtn">Cursos/eventos 
                 <i class="fa fa-caret-down"></i>
             </button>
-            <div class="dropdown-content">
+            <div class="dropdown-content" id="cursosContent">
                 <a href="Cursos_Eventos.html#Cursos">Cursos</a>
                 <a href="Cursos_Eventos.html#Eventos">Eventos</a>
             </div>
@@ -330,7 +330,7 @@
         <div class="dropdown">
             <button class="dropbtn" onclick="window.location.href='Contactos.html'">Contactos</button>
         </div>
-    </div>
+    </div>    
 </div>
 <div class="content-section">
     <div class="text-container" id="textContainer">
@@ -422,6 +422,42 @@
     var menuOptions = document.getElementById("menuOptions");
     menuOptions.classList.toggle("active");
     }
+
+    document.addEventListener('DOMContentLoaded', function() {
+    const dropdowns = document.querySelectorAll('.dropdown');
+
+    dropdowns.forEach(dropdown => {
+        const button = dropdown.querySelector('.dropbtn');
+        const content = dropdown.querySelector('.dropdown-content');
+
+        button.addEventListener('click', function() {
+            // Fechar todas as subopções antes de abrir a nova
+            document.querySelectorAll('.dropdown-content').forEach(subcontent => {
+                if (subcontent !== content) {
+                    subcontent.style.display = 'none';
+                }
+            });
+
+            // Alternar a visibilidade da subopção clicada
+            if (content.style.display === 'none' || content.style.display === '') {
+                content.style.display = 'block';
+            } else {
+                content.style.display = 'none';
+            }
+        });
+    });
+
+    // Fechar subopções se clicar fora
+    window.addEventListener('click', function(event) {
+        if (!event.target.matches('.dropbtn')) {
+            document.querySelectorAll('.dropdown-content').forEach(subcontent => {
+                subcontent.style.display = 'none';
+            });
+        }
+    });
+});
+
+
 </script>
 </body>
 </html>

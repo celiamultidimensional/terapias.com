@@ -137,7 +137,7 @@
 
         .slider-controls {
             position: absolute;
-            bottom: 20px;
+            bottom: 10px;
             left: 50%;
             transform: translateX(-50%);
             display: flex;
@@ -324,6 +324,7 @@
                     background-color: linear-gradient(to right, #FFD700, #FFA500, #FF8C00);
                     padding: 10px 0;
                     margin-top: 10px;
+                    margin-left: 3px;
                 }
 
                 .menu-options.active {
@@ -380,7 +381,7 @@
                 }
 
                 .slider-controls {
-                    margin-bottom: 120px; /* Ajuste este valor conforme necessário */
+                    margin-bottom: 50px; /* Ajuste este valor conforme necessário */
                 }
 
             }
@@ -394,18 +395,18 @@
     <div class="menu-toggle" onclick="toggleMenu()">☰</div>
     <div class="menu-options" id="menuOptions">
         <div class="dropdown">
-            <button class="dropbtn">Inicio 
+            <button class="dropbtn" id="inicioBtn">Inicio 
                 <i class="fa fa-caret-down"></i>
             </button>
-            <div class="dropdown-content">
+            <div class="dropdown-content" id="inicioContent">
                 <a href="Inicio.html">Sobre a Terapeuta</a>
             </div>
         </div>
         <div class="dropdown">
-            <button class="dropbtn">Terapias
+            <button class="dropbtn" id="terapiasBtn">Terapias
                 <i class="fa fa-caret-down"></i>
             </button>
-            <div class="dropdown-content">
+            <div class="dropdown-content" id="terapiasContent">
                 <a href="Terapias.html#Reiki">Reiki</a>
                 <a href="Terapias.html#TerapiaMultidimensional">Terapia Multidimensional</a>
                 <a href="Terapias.html#MassagemDeSom">Massagem de Som</a>
@@ -417,10 +418,10 @@
             </div>
         </div>
         <div class="dropdown">
-            <button class="dropbtn">Cursos/eventos 
+            <button class="dropbtn" id="cursosBtn">Cursos/eventos 
                 <i class="fa fa-caret-down"></i>
             </button>
-            <div class="dropdown-content">
+            <div class="dropdown-content" id="cursosContent">
                 <a href="Cursos_Eventos.html#Cursos">Cursos</a>
                 <a href="Cursos_Eventos.html#Eventos">Eventos</a>
             </div>
@@ -538,6 +539,41 @@ updateSlide();
 setInterval(() => {
     changeSlide(1);
 }, 5000);
+
+document.addEventListener('DOMContentLoaded', function() {
+    const dropdowns = document.querySelectorAll('.dropdown');
+
+    dropdowns.forEach(dropdown => {
+        const button = dropdown.querySelector('.dropbtn');
+        const content = dropdown.querySelector('.dropdown-content');
+
+        button.addEventListener('click', function() {
+            // Fechar todas as subopções antes de abrir a nova
+            document.querySelectorAll('.dropdown-content').forEach(subcontent => {
+                if (subcontent !== content) {
+                    subcontent.style.display = 'none';
+                }
+            });
+
+            // Alternar a visibilidade da subopção clicada
+            if (content.style.display === 'none' || content.style.display === '') {
+                content.style.display = 'block';
+            } else {
+                content.style.display = 'none';
+            }
+        });
+    });
+
+    // Fechar subopções se clicar fora
+    window.addEventListener('click', function(event) {
+        if (!event.target.matches('.dropbtn')) {
+            document.querySelectorAll('.dropdown-content').forEach(subcontent => {
+                subcontent.style.display = 'none';
+            });
+        }
+    });
+});
+
 
 </script>
 

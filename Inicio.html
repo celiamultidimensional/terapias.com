@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terapias Celia Pires</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            min-height: 100vh;
+            background: linear-gradient(to right, #e0f2f1, #b2dfdb);
+            scroll-behavior: smooth;
+            scroll-padding-top: 80px;
+        }
+
+        .navbar {
+            overflow: visible;
+            background: linear-gradient(to right, #FFD700, #FFA500, #FF8C00);
+            height: auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            padding: 10px;
+        }
+
+        .logo {
+            font-family: 'Dancing Script', cursive;
+            font-size: 40px;
+            color: #333;
+            padding: 10px 20px;
+            font-weight: 700;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+            flex: 1;
+        }
+
+        .menu-options {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+            flex: 1;
+        }
+
+        .dropdown {
+            position: relative;
+            margin: 5px;
+        }
+
+        .dropdown .dropbtn {
+            font-size: 25px;
+            border: none;
+            outline: none;
+            color: rgb(0, 0, 0);
+            padding: 10px 15px;
+            background-color: inherit;
+            font-family: inherit;
+            margin: 0;
+        }
+
+        .navbar a:hover, .dropdown:hover .dropbtn {
+            background-color: rgb(255, 255, 255);
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1001;
+        }
+
+        .dropdown-content a {
+            float: none;
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #ddd;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .content-section {
+            min-height: calc(100vh - 80px);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            padding: 100px 20px 20px;
+            box-sizing: border-box;
+        }
+
+        .text-container {
+            max-width: 800px;
+            width: 100%;
+            text-align: left;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .text-container p {
+            margin: 15px 0;
+            font-size: 16px;
+            line-height: 1.6;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .visible {
+            opacity: 1;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            font-size: 18px;
+            border: none;
+            outline: none;
+            color: rgb(0, 0, 0);
+            cursor: pointer;
+            position: relative;
+            z-index: 0;
+            border-radius: 12px;
+            background-position: center;
+            margin-top: 20px;
+        }
+
+        .btn::after {
+            content: "";
+            z-index: -1;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: #FFA500;
+            left: 0;
+            top: 0;
+            border-radius: 10px;
+        }
+
+        .btn::before {
+            content: "";
+            background: linear-gradient(
+                45deg,
+                #f00,#ff7300,#fffb00,#48ff00,
+                #00ffd5,#002bff,#ff0c8f,#ff0000
+            );
+            position: absolute;
+            top:-2px;
+            left:-2px;
+            background-size: 600%;
+            z-index: -1;
+            width: calc(100% + 4px);
+            height: calc(100% + 4px);
+            filter: blur(8px);
+            animation: glowing 20s linear infinite;
+            transition: opacity .3s ease-in-out;
+            border-radius: 10px;
+            opacity: 1;
+        }
+
+        @keyframes glowing {
+            0% {background-position: 0 0;}
+            50% {background-position: 400% 0;}
+            100% {background-position: 0 0;}
+        }
+
+        .btn:hover::before {
+            opacity: 1;
+        }
+
+        .btn:active:after{
+            background: transparent;
+        }
+
+        .btn:active{
+            color:#333;
+            font-weight: bold;
+        }
+
+        .paragraph-style {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 15px;
+            margin-top: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .colored-line {
+            border: none;
+            height: 2px;
+            background-color: #FFA500;
+            margin: 15px 0;
+        }
+
+        #minhaImagem {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            margin-right: 10px;
+            margin-left: 10px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        textarea {
+            height: 100px;
+        }
+
+        .btn-primary {
+            background-color: #FFA500;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .btn-primary:hover {
+            background-color: #FF8C00;
+        }
+
+        .image-container {
+            width: 80%;
+            max-width: 600px;
+            height: 400px;
+            background-image: url('C:/Users/ilhas/Desktop/HTML/site_célia/images/imageCelia.jpg');
+            background-size: cover;
+            background-position: center;
+            transition: transform 0.5s ease;
+            transform: translateX(-100%);
+            margin-bottom: 20px;
+        }
+
+        .menu-toggle {
+            display: none;
+        }
+
+        @media screen and (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+                text-align: right;
+                font-size: 32px; /* Aumentar ainda mais o tamanho das barras no mobile */
+                padding-right: 15px; /* Ajuste para alinhar corretamente no mobile */
+            }
+
+            .logo {
+                font-size: 30px; /* Ajustar o tamanho do título no mobile */
+                padding-right: 20px; /* Garantir que o texto não sobreponha as barras */
+            }
+            .menu-options {
+                display: none;
+            }
+
+            .menu-options.active {
+                display: flex;
+            }
+
+            .dropdown {
+                width: 100%;
+            }
+
+            .dropdown-content {
+                position: static;
+                width: 100%;
+            }
+
+            .hero-text h1 {
+                font-size: 1.5rem;
+            }
+
+            .hero-buttons button {
+                width: 100%;
+                margin-bottom: 10px;
+            }
+            #minhaImagem {
+                width: 60px; /* Ajuste o tamanho conforme necessário */
+                height: 60px; /* Ajuste o tamanho conforme necessário */
+                border-radius: 50%;
+                margin-left: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <img id="minhaImagem" src="C:\Users\ilhas\Desktop\HTML\site_célia\images\imageIcon.jpg" class="image-style" alt="Descrição da imagem">
+        <div class="logo">Terapeuta Celia Pires</div>
+        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+        <div class="menu-options" id="menuOptions">
+            <div class="dropdown">
+                <button class="dropbtn" onclick="window.location.href='index.html'">Voltar</button>
+            </div>
+            <div class="dropdown">
+                <button class="dropbtn">Terapias <i class="fa fa-caret-down"></i></button>
+                <div class="dropdown-content">
+                    <a href="Terapias.html#Reiki">Reiki</a>
+                    <a href="Terapias.html#TerapiaMultidimensional">Terapia Multidimensional</a>
+                    <a href="Terapias.html#MassagemDeSom">Massagem de Som</a>
+                    <a href="Terapias.html#ConcertosMeditativos">Concertos Meditativos</a>
+                    <a href="Terapias.html#CuraAscencional">Cura Ascencional</a>
+                    <a href="Terapias.html#MesaRadionica">Mesa Radiónica</a>
+                    <a href="Terapias.html#SistemaActurianoDeCura">Sistema Arcturiano de Cura</a>
+                    <a href="Terapias.html#Fitoterapia">Fitoterapia</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="dropbtn">Cursos/eventos <i class="fa fa-caret-down"></i></button>
+                <div class="dropdown-content">
+                    <a href="Cursos_Eventos.html#Cursos">Cursos</a>
+                    <a href="Cursos_Eventos.html#Eventos">Eventos</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="dropbtn" onclick="window.location.href='Contactos.html'">Contactos</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="content-section">
+        <div class="text-container" id="textContainer">
+            <div class="paragraph-style">
+                <h1>Sobre a Terapeuta</h1>
+                <hr class="colored-line"><br>
+                <div class="image-container" id="mainImage"></div>
+                <p>Chamo-me Célia e desde sempre me despertou curiosidade pela Espiritualidade.</p>
+                <p>Em 2016 iniciei o meu Caminho Espiritual no Reiki Tradicional. </p>
+                <p>A partir desta data formei-me em diversas áreas, nomeadamente:</p>
+                <ul style="list-style-type:square;">
+                    <li>Mestre de Reiki Usui Shiki Ryoho;</li><br>
+                    <li>Curso de Terapeuta de Reiki para Crianças;</li><br>
+                    <li>Facilitadora de Meditação com crianças;</li><br>
+                    <li>Curso de Formação Profissional de Terapeutas de Som Nível 1 com certificado profissional;</li><br>
+                    <li>Concertos Meditativos;</li><br>
+                    <li>Terapia Multidimensional;</li><br>
+                    <li>Cura Ascencional;</li><br>
+                    <li>Sistema Arcturiano de Cura Multidimensional Nível I, Nível II, Nível III e Nível IV e formadora;</li><br>
+                    <li>Mesa Radiónica Transmutadora;</li><br>
+                    <li>Fitoterapia Avançada pela Universidade Europeia do Atlântico com 10 créditos (FUNIBER);</li><br>
+                    <li>Elaboração de macerações, tinturas, sprays energéticos, escalda pés, banhos de ervas, sabonetes artesanais, Infusões…</li><br>
+                </ul> 
+                <p>O meu principal objetivo é proporcionar o bem-estar emocional, mental e espiritual de quem me procura.</p>
+            </div>
+        </div>
+        <button class="btn" onclick="window.location.href='index.html'">VOLTAR</button>
+    </div>
+        
+
+    <script>
+        const image = document.getElementById('mainImage');
+        const textContainer = document.getElementById('textContainer');
+        const paragraphs = textContainer.getElementsByTagName('p');
+
+        function handleScroll() {
+            const scrollPosition = window.scrollY;
+            const windowHeight = window.innerHeight;
+            const documentHeight = document.documentElement.scrollHeight;
+
+            // Image animation
+            const imageTop = image.getBoundingClientRect().top;
+            if (imageTop < windowHeight) {
+                image.classList.add('visible');
+            } else {
+                image.classList.remove('visible');
+            }
+
+            // Text container animation
+            const textTop = textContainer.getBoundingClientRect().top;
+            if (textTop < windowHeight) {
+                textContainer.style.opacity = '1';
+            } else {
+                textContainer.style.opacity = '0';
+            }
+
+            // Paragraph animations
+            Array.from(paragraphs).forEach((p, index) => {
+                const pTop = p.getBoundingClientRect().top;
+                if (pTop < windowHeight - 50) {
+                    p.style.opacity = '1';
+                } else {
+                    p.style.opacity = '0';
+                }
+            });
+
+            // Image slide out animation
+            const scrollPercentage = (scrollPosition / (documentHeight - windowHeight)) * 100;
+            if (scrollPercentage > 75) {
+                const slideOut = (scrollPercentage - 75) * 4;
+                image.style.transform = `translateX(-${Math.min(slideOut, 100)}%)`;
+            } else {
+                image.style.transform = 'translateX(0)';
+            }
+        }
+
+        window.addEventListener('scroll', handleScroll);
+        handleScroll(); // Call once to set initial state
+
+        function toggleMenu() {
+    var menuOptions = document.getElementById("menuOptions");
+    menuOptions.classList.toggle("active");
+}
+    </script>
+</body>
+</html>

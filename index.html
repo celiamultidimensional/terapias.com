@@ -16,9 +16,8 @@
         }
 
         .navbar {
-            overflow: hidden;
             background: linear-gradient(to right, #FFD700, #FFA500, #FF8C00);
-            height: 80px;
+            padding: 10px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -26,12 +25,18 @@
 
         .logo {
             font-family: 'Dancing Script', cursive;
-            font-size: 35px;
+            font-size: 40px;
             color: #333;
-            padding: 14px 30px;
-            font-weight: 1000;
+            padding: 10px 20px;
+            font-weight: 700;
             text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
-            margin-left: -500px;
+            text-align: left;
+            flex:1;
+        }
+
+        .menu-toggle {
+            display: none;
+            flex:1;
         }
 
         .menu-options {
@@ -39,7 +44,8 @@
         }
 
         .dropdown {
-            overflow: hidden;
+            position: relative;
+            margin-left: 20px;
         }
 
         .dropdown .dropbtn {
@@ -51,28 +57,24 @@
             background-color: inherit;
             font-family: inherit;
             margin: 0;
-        }
-
-        .navbar a:hover, .dropdown:hover .dropbtn {
-            background-color: rgb(255, 255, 255);
+            cursor: pointer;
         }
 
         .dropdown-content {
             display: none;
-            position: absolute;
             background-color: #f9f9f9;
             min-width: 160px;
-            box-shadow: 0px 10px 16px 0px rgba(0,0,0,0.2);
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            position: absolute;
             z-index: 1;
         }
 
         .dropdown-content a {
-            float: none;
             color: black;
-            padding: 12px 20px;
+            padding: 12px 16px;
             text-decoration: none;
             display: block;
-            text-align: center;
+            text-align: left;
         }
 
         .dropdown-content a:hover {
@@ -85,26 +87,22 @@
 
         .hero-container {
             position: relative;
-            height: calc(100vh - 80px);
-            display: flex;
+            height: calc(100vh - 60px);
             background: linear-gradient(to right, #e0f2f1, #b2dfdb);
         }
 
         .hero-text {
-            width: 50%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            padding: 0 5%;
+            padding: 20px;
+            text-align: center;
         }
 
         .hero-text h1 {
-            font-size: 4rem;
-            margin-bottom: 20px;
+            font-size: 2rem;
+            margin-bottom: 10px;
         }
 
         .hero-image {
-            width: 50%;
+            height: 200px;
             background-size: cover;
             background-position: center;
         }
@@ -113,11 +111,12 @@
             margin-top: 20px;
             display: flex;
             justify-content: center;
+            flex-wrap: wrap;
         }
 
         .hero-buttons button {
             padding: 10px 20px;
-            margin-right: 10px;
+            margin: 5px;
             border: none;
             border-radius: 5px;
             cursor: pointer;
@@ -146,13 +145,13 @@
             background-color: rgba(255, 255, 255, 0.5);
             border: none;
             border-radius: 50%;
-            width: 40px;
-            height: 40px;
+            width: 30px;
+            height: 30px;
             display: flex;
             justify-content: center;
             align-items: center;
             cursor: pointer;
-            margin: 0 10px;
+            margin: 0 5px;
         }
 
         .slider-dots {
@@ -160,11 +159,11 @@
         }
 
         .slider-dot {
-            width: 10px;
-            height: 10px;
+            width: 8px;
+            height: 8px;
             border-radius: 50%;
             background-color: rgba(255, 255, 255, 0.5);
-            margin: 0 5px;
+            margin: 0 3px;
             cursor: pointer;
         }
 
@@ -174,20 +173,16 @@
 
         .icon-group {
             display: flex;
-            justify-content: center; /* Centraliza os ícones horizontalmente */
-            gap: 10px; /* Espaçamento entre os ícones */
-            margin-top: 20px; /* Ajuste a margem superior se necessário */
+            justify-content: center;
+            gap: 50px;
+            margin-top: 80px;
         }
+
         .icon-container {
             position: relative;
-            display: flex;
-            justify-content: center; /* Centraliza horizontalmente */
-            align-items: center; /* Centraliza verticalmente */
-            width: 100px;
-            height: 50px; /* Tamanho ajustado da div para que o ícone fique visível */
-            margin: 0 auto; /* Centraliza a div no corpo da página */
+            width: 40px;
+            height: 40px;
             cursor: pointer;
-            margin-top: 60px; /* Ajuste para mover o ícone mais para baixo */
         }
 
         .icon-container i {
@@ -198,7 +193,7 @@
             transition: color 0.3s ease;
         }
 
-                /* Cores personalizadas dos ícones */
+                 /* Cores personalizadas dos ícones */
         .icon-container a[href*="instagram"] i {
             color: #e73a93; /* Cor do Instagram */
         }
@@ -284,34 +279,117 @@
             border-color: #e73a93;
         }
 
-        .paragraph-style {
-            background-color: inherit; /* Usa a cor original do body */
-            padding: 10px;
-            border-radius: 15px;
-            margin-top: 40px;
-            box-shadow: 5px 40px 1000px rgba(0, 0, 0, 0.3); /* Adiciona sombra */
-            width: 45vw;
-            background: transparent;
-            backdrop-filter: blur(20px); /* Adiciona o efeito de desfoque */
-        }
 
+        
         #minhaImagem {
-            width: 60px; /* Ajuste o tamanho conforme necessário */
-            height: 60px; /* Ajuste o tamanho conforme necessário */
-            border-radius: 50%;
-            margin-left: 20px;
-        }
+                width: 60px; /* Ajuste o tamanho conforme necessário */
+                height: 60px; /* Ajuste o tamanho conforme necessário */
+                border-radius: 50%;
+                margin-right: 10px;
+                margin-left: 10px;
+            }
 
+            @media screen and (max-width: 768px) {
+                .navbar {
+                    flex-wrap: wrap;
+                }
+
+                .logo {
+                    font-size: 30px; /* Reduzir o tamanho da fonte para caber melhor */
+                    white-space: nowrap;
+                    flex: 1;
+                }
+
+                #minhaImagem {
+                    width: 60px; /* Reduzir o tamanho da imagem */
+                    height: 60px;
+                }
+
+                .menu-toggle {
+                    display: block; /* Mostrar o botão de menu */
+                    text-align: right;
+                    font-size: 32px;
+                    padding: 10px;
+                    cursor: pointer;
+                }
+
+                .menu-options {
+                    display: none;
+                    flex-direction: column;
+                    justify-content: space-around;
+                    width: 100%;
+                    background-color: linear-gradient(to right, #FFD700, #FFA500, #FF8C00);
+                    padding: 10px 0;
+                    margin-top: 10px;
+                }
+
+                .menu-options.active {
+                    display: flex;
+                }
+
+                .dropdown {
+                    position: relative;
+                    margin: 0;
+                }
+
+                .dropdown .dropbtn {
+                    font-size: 30px;
+                    padding: 8px 12px;
+                    width: auto;
+                }
+
+                .dropdown-content {
+                    display: none;
+                    position: relative; /* Alterado para relative */
+                    width: 100%;
+                    left: 0;
+                    top: 0; /* Alterado para 0 */
+                }
+
+                .dropdown-content a {
+                    padding: 10px;
+                    font-size: 14px;
+                }
+
+                .menu-options a, .dropdown .dropbtn {
+                    padding: 15px;
+                    text-align: left;
+                    width: 100%;
+                    box-sizing: border-box;
+                    display: block;
+                }
+
+                .menu-options a:hover, .dropdown .dropbtn:hover {
+                    background-color: white; /* Cor de fundo branca ao passar o mouse */
+                }
+
+                .hero-text h1 {
+                    font-size: 1.5rem;
+                }
+
+                .hero-buttons button {
+                    width: 100%;
+                    margin-bottom: 10px;
+                }
+
+                .slider-dots {
+                    display: flex;
+                }
+
+                .slider-controls {
+                    margin-bottom: 120px; /* Ajuste este valor conforme necessário */
+                }
+
+            }
     </style>
 </head>
 <body>
 
 <div class="navbar">
     <img id="minhaImagem" src="C:\Users\ilhas\Desktop\HTML\site_célia\images\imageIcon.jpg" class="image-style" alt="Descrição da imagem">
-    <div class="logo">
-        Terapeuta Celia Pires
-    </div>
-    <div class="menu-options">
+    <div class="logo">Terapeuta Celia Pires</div>
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    <div class="menu-options" id="menuOptions">
         <div class="dropdown">
             <button class="dropbtn">Inicio 
                 <i class="fa fa-caret-down"></i>
@@ -383,6 +461,9 @@
             </div><br>
             <p>Você é uma das 
                 <span>
+                    <!-- hitwebcounter Code START -->
+                    <a href="https://www.hitwebcounter.com" target="_blank">
+                        <img src="https://hitwebcounter.com/counter/counter.php?page=16324792&style=0025&nbdigits=5&type=page&initCount=0" title="Counter Widget" Alt="Visit counter For Websites"   border="0" /></a>       
                 </span> 
                 pessoas a aceder ao website.
             </p>
@@ -406,6 +487,16 @@
 </div>
 
 <script>
+function toggleMenu() {
+    var menuOptions = document.getElementById("menuOptions");
+    menuOptions.classList.toggle("active");
+}
+
+function toggleDropdown(event) {
+    event.preventDefault();
+    var dropdownContent = event.target.nextElementSibling;
+    dropdownContent.style.display = dropdownContent.style.display === 'block' ? 'none' : 'block';
+}
 const slides = [
     { title: "REIKI", description: "Desbloqueie a energia, regulando o seu fluxo", image: "C:/Users/ilhas/Desktop/HTML/site_célia/images/image1.jpg" },
     { title: "Terapia Multidimensional", description: "Terapia centrada no seu coração", image: "C:/Users/ilhas/Desktop/HTML/site_célia/images/image2.jpg" },
@@ -444,7 +535,6 @@ updateSlide();
 setInterval(() => {
     changeSlide(1);
 }, 5000);
-
 
 </script>
 

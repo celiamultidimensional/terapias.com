@@ -20,8 +20,9 @@
         .navbar {
             overflow: visible;
             background: linear-gradient(to right, #FFD700, #FFA500, #FF8C00);
-            height: 80px;
+            height: auto;
             display: flex;
+            flex-wrap: wrap;
             justify-content: space-between;
             align-items: center;
             position: fixed;
@@ -29,24 +30,29 @@
             top: 0;
             left: 0;
             z-index: 1000;
+            padding: 10px;
         }
 
         .logo {
             font-family: 'Dancing Script', cursive;
-            font-size: 35px;
+            font-size: 40px;
             color: #333;
-            padding: 14px 30px;
-            font-weight: 1000;
+            padding: 10px 20px;
+            font-weight: 700;
             text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
-            margin-left: -500px;
+            flex: 1;
         }
 
         .menu-options {
             display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+            flex: 1;
         }
 
         .dropdown {
             position: relative;
+            margin: 5px;
         }
 
         .dropdown .dropbtn {
@@ -54,7 +60,7 @@
             border: none;
             outline: none;
             color: rgb(0, 0, 0);
-            padding: 14px 16px;
+            padding: 10px 15px;
             background-color: inherit;
             font-family: inherit;
             margin: 0;
@@ -76,7 +82,7 @@
         .dropdown-content a {
             float: none;
             color: black;
-            padding: 12px 20px;
+            padding: 12px 16px;
             text-decoration: none;
             display: block;
             text-align: left;
@@ -91,7 +97,7 @@
         }
 
         .content-section {
-            min-height: 100vh;
+            min-height: calc(100vh - 80px);
             display: flex;
             flex-direction: column;
             justify-content: flex-start;
@@ -100,47 +106,29 @@
             box-sizing: border-box;
         }
 
-        .image-container {
-            width: 80%;
-            max-width: 600px;
-            height: 400px;
-            background-image: url('C:/Users/ilhas/Desktop/HTML/site_célia/images/imageCelia.jpg');
-            background-size: cover;
-            background-position: center;
-            transition: transform 0.5s ease;
-            transform: translateX(-100%);
-            margin-bottom: 20px;
-        }
-
         .text-container {
-            max-width: 600px;
+            max-width: 800px;
+            width: 100%;
             text-align: left;
             opacity: 0;
             transition: opacity 0.5s ease;
         }
 
         .text-container p {
-            margin: 20px 0;
-            font-size: 18px;
+            margin: 15px 0;
+            font-size: 16px;
             line-height: 1.6;
             opacity: 0;
             transition: opacity 0.5s ease;
         }
 
         .visible {
-            transform: translateX(0);
             opacity: 1;
         }
 
-        .hidden {
-            transform: translateX(-100%);
-            opacity: 0;
-        }
-
-        /*butão*/
         .btn {
-            padding: 15px 30px;
-            font-size: 20px;
+            padding: 12px 24px;
+            font-size: 18px;
             border: none;
             outline: none;
             color: rgb(0, 0, 0);
@@ -149,6 +137,7 @@
             z-index: 0;
             border-radius: 12px;
             background-position: center;
+            margin-top: 20px;
         }
 
         .btn::after {
@@ -163,7 +152,6 @@
             border-radius: 10px;
         }
 
-        /*glow*/
         .btn::before {
             content: "";
             background: linear-gradient(
@@ -205,24 +193,129 @@
         }
 
         .paragraph-style {
-            background-color: inherit; /* Usa a cor original do body */
-            padding: 10px;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
             border-radius: 15px;
-            margin-top: 40px;
-            box-shadow: 5px 40px 1000px rgba(0, 0, 0, 0.3); /* Adiciona sombra */
+            margin-top: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
         .colored-line {
             border: none;
-            height: 2px; /* Espessura da linha */
-            background-color: #FFA500; /* Cor da linha */
+            height: 2px;
+            background-color: #FFA500;
+            margin: 15px 0;
         }
 
         #minhaImagem {
-            width: 60px; /* Ajuste o tamanho conforme necessário */
-            height: 60px; /* Ajuste o tamanho conforme necessário */
+            width: 60px;
+            height: 60px;
             border-radius: 50%;
-            margin-left: 20px;
+            margin-right: 10px;
+            margin-left: 10px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        textarea {
+            height: 100px;
+        }
+
+        .btn-primary {
+            background-color: #FFA500;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .btn-primary:hover {
+            background-color: #FF8C00;
+        }
+
+        .image-container {
+            width: 80%;
+            max-width: 600px;
+            height: 400px;
+            background-image: url('C:/Users/ilhas/Desktop/HTML/site_célia/images/imageCelia.jpg');
+            background-size: cover;
+            background-position: center;
+            transition: transform 0.5s ease;
+            transform: translateX(-100%);
+            margin-bottom: 20px;
+        }
+
+        .menu-toggle {
+            display: none;
+        }
+
+        @media screen and (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+                text-align: right;
+                font-size: 32px; /* Aumentar ainda mais o tamanho das barras no mobile */
+                padding-right: 15px; /* Ajuste para alinhar corretamente no mobile */
+            }
+
+            .logo {
+                font-size: 30px; /* Ajustar o tamanho do título no mobile */
+                padding-right: 20px; /* Garantir que o texto não sobreponha as barras */
+            }
+            .menu-options {
+                display: none;
+            }
+
+            .menu-options.active {
+                display: flex;
+            }
+
+            .dropdown {
+                width: 100%;
+            }
+
+            .dropdown-content {
+                position: static;
+                width: 100%;
+            }
+
+            .hero-text h1 {
+                font-size: 1.5rem;
+            }
+
+            .hero-buttons button {
+                width: 100%;
+                margin-bottom: 10px;
+            }
+            #minhaImagem {
+                width: 60px; /* Ajuste o tamanho conforme necessário */
+                height: 60px; /* Ajuste o tamanho conforme necessário */
+                border-radius: 50%;
+                margin-left: 20px;
+            }
         }
     </style>
 </head>
@@ -230,7 +323,8 @@
     <div class="navbar">
         <img id="minhaImagem" src="C:\Users\ilhas\Desktop\HTML\site_célia\images\imageIcon.jpg" class="image-style" alt="Descrição da imagem">
         <div class="logo">Terapeuta Celia Pires</div>
-        <div class="menu-options">
+        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+        <div class="menu-options" id="menuOptions">
             <div class="dropdown">
                 <button class="dropbtn" onclick="window.location.href='index.html'">Voltar</button>
             </div>
@@ -338,6 +432,10 @@
         window.addEventListener('scroll', handleScroll);
         handleScroll(); // Call once to set initial state
 
+        function toggleMenu() {
+    var menuOptions = document.getElementById("menuOptions");
+    menuOptions.classList.toggle("active");
+}
     </script>
 </body>
 </html>

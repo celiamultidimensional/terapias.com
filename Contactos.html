@@ -265,19 +265,35 @@
             display: none;
         }
         @media screen and (max-width: 768px) {
+            .navbar {
+                display: flex;
+                justify-content: space-between; /* Alinha o logo e o menu nas extremidades */
+                align-items: center; /* Centraliza verticalmente os elementos */
+                padding: 10px;
+            }
+
+            .logo {
+                font-size: 30px; /* Ajustar o tamanho do título no telemóvel */
+                padding-right: 20px; /* Garantir espaçamento adequado */
+            }
+
             .menu-toggle {
                 display: block;
                 text-align: right;
+                font-size: 32px; /* Aumentar o tamanho das barras no telemóvel */
+                padding-right: 15px; /* Ajuste para alinhamento correto */
+                cursor: pointer; /* Adicionar cursor para indicar clique */
             }
 
             .menu-options {
-                display: none;
+                display: none; /* Mantém o menu escondido até ser ativado */
             }
 
             .menu-options.active {
                 display: flex;
+                flex-direction: column; /* Exibe o menu em formato de coluna ao ser ativado */
             }
-
+            
             .dropdown {
                 width: 100%;
             }
@@ -461,7 +477,6 @@
         }
     });
 });
-
 
 </script>
 </body>

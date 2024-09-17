@@ -14,7 +14,7 @@
             min-height: 100vh;
             background: linear-gradient(to right, #e0f2f1, #b2dfdb);
             scroll-behavior: smooth;
-            scroll-padding-top: 80px;
+            scroll-padding-top: 140px;
         }
 
         .navbar {
@@ -584,6 +584,38 @@
         }
     });
 });
+
+    function toggleMenu() {
+        var menu = document.getElementById("menuOptions");
+        menu.classList.toggle("active");
+    }
+
+    // Função para fechar o menu após clicar em uma opção
+    function closeMenu() {
+        var menu = document.getElementById("menuOptions");
+        menu.classList.remove("active");
+    }
+
+    // Função para verificar se o dispositivo é móvel (tela com largura <= 768px)
+    function isMobile() {
+        return window.innerWidth <= 768;
+    }
+
+    // Adicionando o evento de clique nas subopções para fechar o menu apenas em dispositivos móveis
+    document.querySelectorAll('.dropdown-content a').forEach(function(item) {
+        item.addEventListener('click', function() {
+            if (isMobile()) {
+                closeMenu();
+            }
+        });
+    });
+
+    // Verifica o tamanho da tela ao redimensionar a janela
+    window.addEventListener('resize', function() {
+        if (!isMobile()) {
+            closeMenu(); // Fecha o menu automaticamente quando a tela ficar maior que 768px
+        }
+    });
 
 
 </script>

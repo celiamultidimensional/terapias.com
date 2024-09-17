@@ -14,7 +14,7 @@
             min-height: 100vh;
             background: linear-gradient(to right, #e0f2f1, #b2dfdb);
             scroll-behavior: smooth;
-            scroll-padding-top: 80px;
+            scroll-padding-top: 140px;
         }
 
         .navbar {
@@ -278,7 +278,7 @@
             }
 
             .dropdown-content {
-                position: static;
+                position: relative;
                 width: 100%;
             }
 
@@ -421,9 +421,9 @@
     function toggleMenu() {
     var menuOptions = document.getElementById("menuOptions");
     menuOptions.classList.toggle("active");
-    }
+}
 
-    document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function() {
     const dropdowns = document.querySelectorAll('.dropdown');
 
     dropdowns.forEach(dropdown => {
@@ -456,6 +456,7 @@
         }
     });
 });
+
 
 
 </script>
